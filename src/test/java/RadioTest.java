@@ -161,6 +161,48 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    /////////////////////////////// station
+
+
+    @Test
+    public void shouldShowNumberOfStations(){
+     Radio radio = new Radio();
+     int expected = 10;
+     int actual = radio.getNumberOfStations();
+
+     Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNumberOfStations() {
+        Radio radio = new Radio(10);
+
+        int expected = 10;
+        int actual = radio.getNumberOfStations();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNumberOfStationsToMinimum() {
+        Radio radio = new Radio(1);
+
+        int expected = 1;
+        int actual = radio.getNumberOfStations();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNumberOfStationsToMaximum() {
+        Radio radio = new Radio(10);
+
+        int expected = 10;
+        int actual = radio.getNumberOfStations();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
     @Test
     public void shouldChangeTheStation() {
         Radio radio = new Radio();
@@ -190,7 +232,7 @@ class RadioTest {
     @Test
     public void shouldNotChangeTheStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(11);
 
         radio.nextStation();
 
@@ -241,7 +283,7 @@ class RadioTest {
     @Test
     public void shouldNotShowTheCurrentStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(11);
 
         int expected = 0;
         int actual = radio.getCurrentStation();
